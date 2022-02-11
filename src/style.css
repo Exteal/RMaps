@@ -1,0 +1,13 @@
+* {
+    font-family: sans-serif;
+}
+
+#map {
+    height : 500px;
+}
+
+#searchMenu {
+    display: flex;
+    flex-direction: row;
+    
+}
