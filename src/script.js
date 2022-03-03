@@ -3,6 +3,7 @@ const formSearchAdvanced = document.querySelector("#formSearchAdvanced");
 const searchMotor = document.querySelector("#searchMotor");
 const typeSearch = document.querySelector("#type-search");
 const btnAdvancedForm = document.querySelector("#btnAdvancedSearch");
+const btnTraceRoute = document.querySelector("#btnTraceRoute");
 
 //routing 
 const btOpennRoute = document.querySelector("#btnOpenRoute");
@@ -16,7 +17,7 @@ const accessToken = "pk.eyJ1IjoiYWxwaG9uc2VhbG9uenkiLCJhIjoiY2t6aWZ2ZGlzMDg5dzJv
 const locationList = [null,null];
 const tempMarkers = [];
 const routesList = [];
-
+let map;
 
 const init = function () {
 
@@ -100,6 +101,10 @@ btnCloseRoute.addEventListener("click",function(e) {
     routeDestinationInput.value="";
 });
 
+btnTraceRoute.addEventListener("click",function(e) {
+    traceRoute();
+});
+
 const onMarkerClick = function(e) {
     e.preventDefault();
 }
@@ -175,3 +180,32 @@ const traceRoute = function() {
     }
 }
 
+routeStartInput.addEventListener("change", function(e) {
+    fetch(`https://nominatim.openstreetmap.org/search?q=${e.target.value}&limit=1&format=json&addressdetails=1`)
+    .then(function(res) {
+        return res.json();
+    })
+    .then(function(res) {
+
+    const lat = Number.parseFloat(res[0].lat);
+    const lon = Number.parseFloat(res[0].lon);
+
+    const coord = L.latLng(lat,lon);
+    locationList.splice(0,1,coord);
+    });
+})
+
+routeDestinationInput.addEventListener("change", function(e) {
+    fetch(`https://nominatim.openstreetmap.org/search?q=${e.target.value}&limit=1&format=json&addressdetails=1`)
+    .then(function(res) {
+        return res.json();
+    })
+    .then(function(res) {
+
+    const lat = Number.parseFloat(res[0].lat);
+    const lon = Number.parseFloat(res[0].lon);
+
+    const coord = L.latLng(lat,lon);
+    locationList.splice(1,1,coord);
+    });
+})
