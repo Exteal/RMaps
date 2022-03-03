@@ -3,28 +3,40 @@
 <head>
     <meta charset='utf-8'>
     <title>PWEB Carte</title>
-     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <script src='script.js' async></script>
-    
+
+    <!--  Leaflet dependencies -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin="" async></script>
-    
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin="" async></script>
+
+    <!--  Leaflet routing dependencies -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js" async></script>
+
+    <!-- MapBox dependencies -->  
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js' async></script>
+
+
 </head>
 
-<body onload=init();>
+<body>
     <div id="searchMenu">
         <button id="btnAdvancedSearch">
-            <img src="../assets/menu.webp" height="20px">
+            <img src="../assets/menu.webp" height="20px"/>
         </button>
         
         <form id="formSearch">
             <input id="searchMotor" type="text" placeholder="Entrez votre recherche"/>
         </form>
         
+
         <form id="formSearchAdvanced" hidden>
             <label for="type-search">
                 Vous recherchez :
@@ -40,6 +52,22 @@
         </form>
     </div>
     
+    <button id="btnOpenRoute">
+        <img src="../assets/route.webp" height="20px">
+    </button>
+
+    <div id="routeInterface" hidden>
+        <button id="btnCloseRoute">
+            <img src="../assets/close.webp" height="20px"/>
+        </button>
+
+        <input id="routeStartInput" type="text"/> 
+        <input id="routeDestinationInput" type="text"/>
+       <button>
+           Itinéraire
+       </button>
+    </div>
+
     <div id="map" >
 
     </div>

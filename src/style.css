@@ -4,9 +4,26 @@
 
 #map {
     height : 500px;
+    z-index: 0;
 }
 
 #searchMenu {
     display: flex;
     flex-direction: row;
+}
+
+#routeInterface {
+    position: absolute;
+    left: 0%;
+    top:0%;
+    margin: 5px;
+    padding: 2px;
+    background-color: brown;
+    height: 100%;
+    width: 15%;
+    z-index: 1;
+}
+
+#btnCloseRoute {
+    right: 0px;
 }
