@@ -106,8 +106,8 @@ const onMarkerClick = function(e) {
 
 const onMapClick = function(e) {
     var container = L.DomUtil.create('div'),
-    startBtn = createButton('Start from this location', container),
-    destBtn = createButton('Go to this location', container);
+    startBtn = createButton('Partir d\'ici', container),
+    destBtn = createButton('Aller jusqu\'ici', container);
 
     L.popup()
     .setContent(container)
@@ -135,9 +135,6 @@ const onMapClick = function(e) {
     L.DomEvent.on(destBtn, 'click', function() {
         locationList.splice(1, 1, e.latlng);
         
-        const tempMarker = L.marker(e.latlng);
-        tempMarkers.push(tempMarker);
-        tempMarker.addTo(map);
 
         const lat = e.latlng["lat"];
         const lng = e.latlng["lng"];
@@ -171,7 +168,7 @@ const traceRoute = function() {
                 locationList[0],
                 locationList[1]
             ],
-            router: L.Routing.mapbox(accessToken),
+            router: L.Routing.mapbox(accessToken,{language : 'fr'})
         });
         routesList.push(control);
         control.addTo(map);
