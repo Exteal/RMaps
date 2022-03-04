@@ -27,9 +27,12 @@
 </head>
 
 <body>
+    <div id="menus">
+
+    </div>
     <div id="searchMenu">
-        <button id="btnAdvancedSearch">
-            <img src="../assets/menu.webp" height="20px"/>
+        <button id="btnAdvancedSearch" title="Recherche avancée">
+            <img src="../assets/search.png" height="20px"/>
         </button>
         
         <form id="formSearch">
@@ -52,7 +55,7 @@
         </form>
     </div>
     
-    <button id="btnOpenRoute">
+    <button id="btnOpenRoute" title="Itinéraire">
         <img src="../assets/route.webp" height="20px">
     </button>
 
@@ -61,15 +64,34 @@
             <img src="../assets/close.webp" height="20px"/>
         </button>
 
-        <input id="routeStartInput" type="text"/> 
-        <input id="routeDestinationInput" type="text"/>
-       <button id="btnTraceRoute">
+        <input id="routeStartInput" class="inputRoute" type="search" placeholder="Départ"/> 
+        <input id="routeDestinationInput" class="inputRoute" type="search" placeholder="Arrivée"/>
+
+
+        <button id="btnTraceRoute" class="btnsRouteStyle">
            Itinéraire
-       </button>
+        </button>
+
+        <button id="btnRouteShowOptions" class="btnsRouteStyle">
+            Moyens de transport
+        </button>
+        
+        <div id="inputsMeansOfTransports">
+            <input type ="button" title="Moyen recommandé" class="btnMeansOfTransport" id="recommanded" value="driving-traffic" hidden />
+            <input type ="button" title="Voiture" class="btnMeansOfTransport" id="drive" value="driving" hidden />
+            <input type ="button" title="Vélo" class="btnMeansOfTransport" id="cycle"  value="cycling" hidden />
+            <input type ="button" title="Marche" class="btnMeansOfTransport" id="walk" value="walking" hidden />    
+        </div>
+
+        <button id="btnRouteHideOptions" class="btnsRouteStyle" hidden>
+            Fermer les options
+        </button>
     </div>
 
-    <div id="map" >
 
+
+
+    <div id="map" class="custom-popup">
     </div>
     
 </body>

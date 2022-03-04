@@ -3,7 +3,7 @@
 }
 
 #map {
-    height : 500px;
+    height : 650px;
     z-index: 0;
 }
 
@@ -12,18 +12,99 @@
     flex-direction: row;
 }
 
+/* routing
+*/
 #routeInterface {
     position: absolute;
     left: 0%;
     top:0%;
-    margin: 5px;
     padding: 2px;
-    background-color: brown;
+    background-color: #d6d5d5;
     height: 100%;
     width: 15%;
     z-index: 1;
 }
 
 #btnCloseRoute {
-    right: 0px;
+    border-radius: 20px;
+    display: block;
+    width: 20%;
+    margin-left: 75%;
+}
+
+.inputRoute {
+    border-radius: 5px;
+    width: 75%;
+    margin-left: 12.5%;
+    margin-top: 20px;
+}
+
+.btnsRouteStyle {
+    border-radius: 25px;
+    padding: 5px;
+    height: 10%;
+    width: 75%;
+    margin-left: 12.5%;
+    margin-top: 20px;
+}
+
+.btnMeansOfTransport {
+    background-color: inherit;
+    border: none;
+    height: 46px;
+    width: 46px;
+    font-size: 0px;
+    flex-shrink: 2;
+}
+.selected {
+    background-color: #fdffda;
+}
+
+#recommanded {
+    background-image: url("../assets/recommanded.png");
+}
+#drive {
+    background-image: url("../assets/drive.png");
+}
+#cycle {
+    background-image: url("../assets/cycle.png");
+}
+#walk {
+    background-image: url("../assets/walk.png");
+}
+
+#inputsMeansOfTransports {
+    display : flex;
+    flex-direction: row;
+}
+
+/* popup
+*/
+.routing {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.infos {
+    white-space: nowrap;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.btnPopup {
+    border-radius: 5px;
+}
+
+.custom-popup .leaflet-popup-content-wrapper {
+    background: #C1C1C1;
+}
+
+
+.custom-popup .leaflet-popup-tip {
+    background-color: #C1C1C1;
 }
